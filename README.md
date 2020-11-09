@@ -9,6 +9,7 @@ Recipe App API created with Django Rest Framework, PostgreSQL, Docker, Travis CI
 - `docker-compose run app sh -c "django-admin.py startproject app ."`: Create new project called app inside app folder.
 - `docker-compose run app sh -c "python manage.py startapp core"`: Create new project called core on inside app folder.
 - `docker-compose run app sh -c "python manage.py test"`: Run tests.
+- `docker-compose run app sh -c "python manage.py makemigrations MIGRATIONNAME"`: Create a new migration
 
 ### Libraries/Dependencies
 
