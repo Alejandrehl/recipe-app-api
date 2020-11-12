@@ -12,6 +12,7 @@ Recipe App API created with Django Rest Framework, PostgreSQL, Docker, Travis CI
 - `docker-compose run app sh -c "python manage.py makemigrations MIGRATIONNAME"`: Create a new migration
 - `docker-compose up`: Run project with docker-compose file definition.
 - `docker-compose run app sh -c "python manage.py test && flake8"`: Run tests with linter flake8.
+- `docker-compose run app sh -c "python manage.py createsuperuser"`: Create super user.
 
 ### Libraries/Dependencies
 
@@ -24,3 +25,9 @@ Recipe App API created with Django Rest Framework, PostgreSQL, Docker, Travis CI
 
 - How does Django determine where to look for tests?:
   Django searches for any Python module starting with "test". This is why you can store your tests in "tests.py" or "tests/test_something.py"
+
+- Why would you use mocking?
+  Mocking is used to isolate the specific code to be tested and to avoid unintended consequences of running your unit tests.
+
+- When writing unit tests, you should never:
+  Depend on external services.
