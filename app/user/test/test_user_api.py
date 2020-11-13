@@ -32,7 +32,9 @@ class PublicUserApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         user = get_user_model().objects.get(**res.data)
-        self.assetTrue(user.check_password(payload['password']))
+        self.assertTrue(
+            user.check_password(payload['password'])
+        )
         self.assertNotIn('password', res.data)
 
     def test_user_exists(self):
@@ -46,13 +48,13 @@ class PublicUserApiTests(TestCase):
 
         res = self.client.post(CREATE_USER_URL, payload)
 
-        self.assertEqual(res.status.code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_password_too_short(self):
         """Test that the password must be more than 5 characters"""
         payload = {
             'email': 'alejandrehl@icloud.com',
-            'password': '123',
+            'password': '12',
             'name': 'Alejandro Hernández'
         }
 
@@ -60,7 +62,7 @@ class PublicUserApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
         user_exists = get_user_model().objects.filter(
-            email=payload('email')
+            email=payload['email']
         ).exists()
 
         self.assertFalse(user_exists)
@@ -83,7 +85,7 @@ class PublicUserApiTests(TestCase):
         create_user(email='alejandrehl@icloud.com', password='testpass')
         payload = {'email': 'alejandrehl@icloud.cl', 'password': 'testpass'}
 
-        res = self.client_post(TOKEN_URL, payload)
+        res = self.client.post(TOKEN_URL, payload)
 
         self.assertNotIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
