@@ -31,3 +31,20 @@ Recipe App API created with Django Rest Framework, PostgreSQL, Docker, Travis CI
 
 - When writing unit tests, you should never:
   Depend on external services.
+
+# [¿Qué es un Diccionario de datos en Python?](https://devcode.la/tutoriales/diccionarios-en-python/#:~:text=Un%20Diccionario%20es%20una%20estructura,listas%20e%20incluso%20otras%20funciones.&text=Para%20definir%20un%20diccionario%2C%20se,listado%20de%20valores%20entre%20llaves.)
+
+```python
+diccionario = {'nombre' : 'Carlos', 'edad' : 22, 'cursos': ['Python','Django','JavaScript'] }
+
+print diccionario['nombre'] #Carlos
+print diccionario['edad']#22
+print diccionario['cursos'] #['Python','Django','JavaScript']
+
+print diccionario['cursos'][0]#Python
+print diccionario['cursos'][1]#Django
+print diccionario['cursos'][2]#JavaScript
+
+for key in diccionario:
+  print key, ":", diccionario[key]
+```
