@@ -50,4 +50,7 @@ for key in diccionario:
   print key, ":", diccionario[key]
 ```
 
-# [Django ImageField](https://docs.djangoproject.com/en/2.1/ref/models/fields/#imagefield)
+# Upload Images
+
+- [Pillow](https://pypi.org/project/Pillow/): Python Image Library
+- [Django ImageField](https://docs.djangoproject.com/en/2.1/ref/models/fields/#imagefield)
