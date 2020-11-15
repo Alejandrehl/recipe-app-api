@@ -13,6 +13,7 @@ Recipe App API created with Django Rest Framework, PostgreSQL, Docker, Travis CI
 - `docker-compose up`: Run project with docker-compose file definition.
 - `docker-compose run app sh -c "python manage.py test && flake8"`: Run tests with linter flake8.
 - `docker-compose run app sh -c "python manage.py createsuperuser"`: Create super user.
+- `docker-compose run --rm app sh -c "python manage.py startapp recipe"`: Create recipe app
 
 ### Libraries/Dependencies
 
