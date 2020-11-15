@@ -16,7 +16,7 @@ class PublicTagsApiTests(TestCase):
     """Test the publicity available tags API"""
 
     def setUp(self) -> None:
-        self.client = APIClient
+        self.client = APIClient()
 
     def test_login_required(self):
         """Test that login is reqyured for retrieving tags"""
@@ -38,11 +38,8 @@ class PrivateTagsApiTests(TestCase):
 
     def test_retrieve_tags(self):
         """Test retrieving tags"""
-        Tag.objects.create(user=self.user, name="Vegan")
-        Tag.objects.create(user=self.user, name="Dessert")
-        Tag.objects.create(user=self.user, name="Italian")
-        Tag.objects.create(user=self.user, name="Chinesse")
-        Tag.objects.create(user=self.user, name="Chilean")
+        Tag.objects.create(user=self.user, name='Vegan')
+        Tag.objects.create(user=self.user, name='Dessert')
 
         res = self.client.get(TAGS_URL)
 
